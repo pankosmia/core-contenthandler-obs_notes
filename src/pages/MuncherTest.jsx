@@ -4,6 +4,7 @@ import {
   bcvContext,
   debugContext,
   i18nContext,
+  Header,
 } from "pankosmia-rcl";
 import { useContext, useState, useEffect } from "react";
 import { getJson } from "pankosmia-lib/http";
@@ -53,11 +54,20 @@ export function MuncherTest() {
       sx={{
         display: "flex",
         flexDirection: "column",
-        margin: 3,
-        height: "98vh",
+        height: "100%",
+        overflow: "hidden",
       }}
     >
-      <WrapperNav flavor={"x-obsnotes"} obs={obs} setObs={setObs} />
+      <Box>
+        <Header
+          titleKey={"pages:core-contenthandler-obs_notes:titleMuncherTest"}
+          currentId="content"
+          requireNet={false}
+        />
+      </Box>
+      <Box sx={{ paddingLeft: 2, paddingTop: 2, flexShrink: 0 }}>
+        <WrapperNav flavor={"x-obsnotes"} obs={obs} setObs={setObs} />
+      </Box>
 
       <Box
         sx={{
